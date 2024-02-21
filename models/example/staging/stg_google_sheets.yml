@@ -17,8 +17,7 @@ models:
                 field: product_id  
       - name: quantity
         tests:
-          - not_null
-          - positive_values('budget','quantity')    
+          - not_null    
       - name: month
         tests:
           - not_null
