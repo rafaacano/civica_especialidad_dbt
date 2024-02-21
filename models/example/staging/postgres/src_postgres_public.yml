@@ -1,0 +1,1 @@
+dbt run-operation generate_source --args '{"schema_name": "postgres_public", "database_name": "RCANO_BRONZE_DB", "generate_columns": "true", "include_descriptions": "true"}'
