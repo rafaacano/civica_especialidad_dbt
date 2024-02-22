@@ -1,1 +1,0 @@
-{{ codegen.generate_source(schema_name = 'postgres_public', database_name= 'RCANO_BRONZE_DB', generate_columns= 'true')}}
