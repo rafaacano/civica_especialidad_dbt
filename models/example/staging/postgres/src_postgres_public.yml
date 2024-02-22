@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: sql_server_db
-    database: <NOMBRE_USUARIO>_BRONZE_DB
+    database: "{{ env_var('DBT_ENVIRONMENTS') }}_BRONZE_DB"
     tables:
       - name: addresses
         columns:
