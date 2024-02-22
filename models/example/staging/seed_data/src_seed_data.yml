@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+
+  - name: seed_data # name of the source 
+    description: > 
+      Raw data demo from Database.
+    schema: rcano_seed_data # this is the schema our raw data lives in
+    database: "{{ env_var('DBT_ENVIRONMENTS') }}_BRONZE_DB" # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+
+      - name: personas
+        description: >
+          Example of data about persons
+        columns:
+          - name: name
+          - name: year
+          - name: income
+          - name: education
+          - name: graduation
+          - name: standing
