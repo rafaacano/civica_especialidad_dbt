@@ -45,6 +45,8 @@ models:
         +schema: google_sheets
       sql_server_dbo:
         +schema: sql_server_dbo
+      postgres:
+        +schema: postgres_public
       
     marts:
       +materialized: table
