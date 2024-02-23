@@ -29,4 +29,5 @@ renamed_casted AS (
     FROM src_postgres_orders
     )
 
-SELECT * FROM renamed_casted
+SELECT  AVG(DATEDIFF(day,created_at,delivered_at)) AS tiempo_medio_entrega
+ FROM renamed_casted

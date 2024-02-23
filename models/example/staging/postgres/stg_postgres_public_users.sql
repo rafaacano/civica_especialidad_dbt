@@ -25,4 +25,4 @@ renamed_casted AS (
     FROM src_postgres_users
     )
 
-SELECT * FROM renamed_casted
+SELECT distinct count(user_id) FROM renamed_casted
