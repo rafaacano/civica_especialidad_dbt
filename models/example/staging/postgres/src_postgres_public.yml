@@ -37,15 +37,15 @@ sources:
       - name: order_items
         columns:
           - name: order_id
-            description: ""
+
           - name: product_id
-            description: ""
+
           - name: quantity
-            description: ""
+
           - name: _fivetran_deleted
-            description: ""
+
           - name: _fivetran_synced
-            description: ""
+
 
       - name: orders
         columns:

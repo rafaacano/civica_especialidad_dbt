@@ -46,7 +46,7 @@ models:
       sql_server_dbo:
         +schema: sql_server_dbo
       postgres:
-        +schema: postgres_public
+        +schema: postgres
       
     marts:
       +materialized: table
