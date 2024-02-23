@@ -7,22 +7,17 @@
 WITH src_postgres_users AS (
     SELECT * 
     FROM {{ source('postgres', 'users') }}
-    ),
+),
+src_postgres_orders AS (
+    SELECT * 
+    FROM {{ source('postgres', 'orders') }}
+)
 
-renamed_casted AS (
-    SELECT
-        user_id
-        , updated_at
-        , address_id
-        , last_name
-        , created_at
-        , phone_number
-        , total_orders
-        , first_name
-        , email
-        , _fivetran_deleted
-        , _fivetran_synced AS date_load
-    FROM src_postgres_users
-    )
+SELECT
+    rco.user_id,
+    count(rcu.order_id) AS total_pedidos
+FROM src_postgres_users AS rco
+JOIN src_postgres_orders AS rcu ON rco.user_id = rcu.user_id
+GROUP BY rco.user_id
+ORDER BY rco.user_id -- Ordena por user_id y fecha del pedido
 
-SELECT distinct count(user_id) FROM renamed_casted
