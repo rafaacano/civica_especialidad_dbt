@@ -19,5 +19,4 @@ SELECT
 FROM src_postgres_users AS spu
 JOIN src_postgres_orders AS spo ON spu.user_id = spo.user_id
 GROUP BY spu.user_id
-ORDER BY spu.user_id -- Ordena por user_id y fecha del pedido
 
