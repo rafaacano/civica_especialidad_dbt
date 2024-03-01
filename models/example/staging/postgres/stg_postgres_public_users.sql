@@ -3,7 +3,6 @@
     materialized='view'
   )
 }}
-
 WITH src_postgres_users AS (
     SELECT * 
     FROM {{ source('postgres', 'users') }}
@@ -25,5 +24,5 @@ renamed_casted AS (
     FROM src_postgres_users
     )
 
-SELECT distinct count(user_id) from renamed_casted
+SELECT * from renamed_casted
 

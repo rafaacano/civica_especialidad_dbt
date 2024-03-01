@@ -15,8 +15,10 @@ src_postgres_orders AS (
 
 SELECT
     spu.user_id,
+    spu.first_name,
     count(spo.order_id) AS total_pedidos
 FROM src_postgres_users AS spu
 JOIN src_postgres_orders AS spo ON spu.user_id = spo.user_id
-GROUP BY spu.user_id
+GROUP BY spu.user_id, spu.first_name
+ORDER BY spu.first_name
 
